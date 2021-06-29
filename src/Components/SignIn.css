@@ -1,0 +1,44 @@
+.signIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__containerLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45vw;
+  border-right: 1px solid grey;
+}
+
+.login__containerLeft > h2 {
+  font-size: 3.5vw;
+  font-weight: 400;
+}
+
+.login__containerLeft > img {
+  width: 20vw;
+}
+
+.login__containerRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45vw;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4vw;
+}
+
+.login__container {
+  width: 50%;
+  background-color: rgb(223, 223, 223);
+  border-radius: 10px;
+}

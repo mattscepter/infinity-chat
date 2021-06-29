@@ -1,0 +1,96 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex: 0.7;
+}
+
+.chat__header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+
+.chat__headerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.chat__headerRight {
+  width: 4vw;
+}
+
+.chat__headerInfo {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.chat__headerInfo > h2 {
+  font-weight: 500;
+  margin: 0;
+}
+
+.chat__headerInfo > h4 {
+  color: gray;
+  font-weight: 500;
+  margin: 0;
+}
+
+.chat__body {
+  flex: 1;
+  background-image: url("../background.png");
+  background-repeat: repeat;
+  background-position: center;
+  padding: 30px;
+  overflow-y: scroll;
+}
+
+.chat__footer {
+  padding-right: 10px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+}
+
+.chat__footer > form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.chat__footer > form > input {
+  flex: 1;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+  outline-width: 0;
+  margin-left: 10px;
+}
+
+.chat__footer > .MuiSvgIcon-root {
+  color: gray;
+}
+
+.empty__page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.empty__page > h4 {
+  display: flex;
+  font-size: 3vw;
+  font-weight: 300;
+}
+
+.empty__page > img {
+  margin-top: 40px;
+  width: 15vw;
+}

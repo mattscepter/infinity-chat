@@ -1,0 +1,87 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.3;
+}
+
+.sidebar__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-right: 1px solid lightgray;
+}
+
+.sidebar__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar__left > h2 {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.sidebar__headerRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 10vw;
+}
+
+.sidebar__headerRight > .MuiSvgIcon-root {
+  margin-right: 2vw;
+  font-size: 24px !important;
+}
+
+.sidebar__search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ececec;
+  padding: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-right: 1px solid lightgray;
+}
+
+.sidebar__searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  border-radius: 200px;
+}
+
+.sidebar__searchContainer > input {
+  width: 100%;
+  border: none;
+  outline-width: 0;
+  margin-left: 10px;
+}
+
+.sidebar__chats {
+  overflow-y: hidden;
+  border-right: 1px solid lightgray;
+}
+.sidebar__chats:hover {
+  overflow-y: auto;
+}
+
+.sidebar__searchResult {
+  display: flex;
+  align-items: center;
+  height: 8vh;
+  width: 100%;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+.sidebar__searchResult > h2 {
+  margin-left: 20px;
+}
+
+.sidebar__searchResult:hover > h2 {
+  color: gray;
+}
