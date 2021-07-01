@@ -4,7 +4,7 @@ import { Image, List } from "semantic-ui-react";
 import axios from "../axios.js";
 import { useStateValue } from "../context/provider";
 import { authBool, conversation } from "../context/actions.js";
-import unnamed from "../unnamed.png";
+import avatar from "../avatar.png";
 
 function SidebarChat({ conversations, currentUser, setErr }) {
   const [convo, setConvo] = useState([]);
@@ -31,7 +31,17 @@ function SidebarChat({ conversations, currentUser, setErr }) {
         setErr({ error: "", display: "" });
       }}
     >
-      <Image avatar src={unnamed} style={{ marginLeft: "20px" }} />
+      <profileImg></profileImg>
+      <Image
+        className="avatar"
+        avatar
+        src={
+          convo.imagePath
+            ? `https://infinity-chat.herokuapp.com/uploads/${convo.imagePath}`
+            : avatar
+        }
+        style={{ marginLeft: "20px", width: "50px", height: "50px" }}
+      />
       <List.Content style={{ margin: "10px" }}>
         <List.Header>
           <h2>{convo.userName}</h2>

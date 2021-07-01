@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Chat.css";
-import { Avatar } from "@material-ui/core";
 import ChatMessage from "./ChatMessage";
 import ScrollableFeed from "react-scrollable-feed";
 import axios from "../axios.js";
 import { useStateValue } from "../context/provider";
 import io from "socket.io-client";
-import { Input, Button, Icon } from "semantic-ui-react";
+import { Input, Button, Icon, Image } from "semantic-ui-react";
 import infinity from "../infinity.png";
 import infinitylogo from "../infinitylogo.svg";
+import avatar from "../avatar.png";
 
 function Chat() {
   const [state] = useStateValue();
@@ -21,7 +21,7 @@ function Chat() {
   let i = 0;
 
   useEffect(() => {
-    socket.current = io("https://infinity-chat.herokuapp.com/");
+    socket.current = io("https://infinity-chat.herokuapp.com");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -103,7 +103,16 @@ function Chat() {
         <>
           <div className="chat__header">
             <div className="chat__headerLeft">
-              <Avatar />
+              <Image
+                avatar
+                src={
+                  convo.imagePath
+                    ? `https://infinity-chat.herokuapp.com/uploads/${convo.imagePath}`
+                    : avatar
+                }
+                style={{ marginLeft: "20px", width: "55px", height: "55px" }}
+              />
+
               <div className="chat__headerInfo">
                 <h2>{convo.userName}</h2>
                 <h4>{convo.name}</h4>
@@ -114,7 +123,7 @@ function Chat() {
                     </span>
                   </li>
                 ) : (
-                  <p>offline</p>
+                  <p style={{ color: "gray" }}>offline</p>
                 )}
               </div>
             </div>

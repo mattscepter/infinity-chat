@@ -15,7 +15,7 @@ function ChatMessage({ mess, currentUser }) {
         mess.sender !== currentUser ? "sender" : "reciever"
       }`}
     >
-      <p style={{ margin: "0", paddingBottom: "10px" }}>{mess.text}</p>
+      <p style={{ margin: "0", paddingBottom: "5px" }}>{mess.text}</p>
       <p style={{ fontSize: "10px", margin: "0" }}>{time}</p>
     </div>
   );

@@ -5,8 +5,11 @@
   position: relative;
   font-size: 16px;
   padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: fit-content;
   border-radius: 20px;
+  border-top-left-radius: 0;
   background-color: #ffffff;
   margin-top: 30px;
 }
@@ -14,17 +17,7 @@
 .reciever {
   margin-left: auto;
   background-color: #dcf8c6;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0;
   align-items: flex-end;
-}
-
-.chat__timestamp {
-  margin-top: 2px;
-  font-size: xx-small;
-}
-
-.chat__name {
-  position: absolute;
-  top: -20px;
-  font-weight: 700;
-  font-size: small;
 }

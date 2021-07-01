@@ -32,6 +32,7 @@
 }
 
 .chat__headerInfo > h4 {
+  font-size: 15px;
   color: gray;
   font-weight: 500;
   margin: 0;
@@ -53,25 +54,6 @@
   align-items: center;
   justify-content: space-between;
   height: 62px;
-}
-
-.chat__footer > form {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.chat__footer > form > input {
-  flex: 1;
-  border-radius: 30px;
-  padding: 10px;
-  border: none;
-  outline-width: 0;
-  margin-left: 10px;
-}
-
-.chat__footer > .MuiSvgIcon-root {
-  color: gray;
 }
 
 .empty__page {

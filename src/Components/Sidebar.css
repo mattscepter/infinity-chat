@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .sidebar__left > h2 {
   margin: 0;
@@ -48,6 +49,7 @@
 
 .sidebar__searchContainer {
   display: flex;
+
   align-items: center;
   background-color: white;
   width: 100%;
@@ -62,6 +64,7 @@
 }
 
 .sidebar__chats {
+  height: 100vh;
   overflow-y: hidden;
   border-right: 1px solid lightgray;
 }
@@ -79,7 +82,8 @@
 }
 
 .sidebar__searchResult > h2 {
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-top: 0;
 }
 
 .sidebar__searchResult:hover > h2 {

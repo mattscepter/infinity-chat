@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
-import { Avatar } from "@material-ui/core";
 import SidebarChat from "./SidebarChat";
 import { useStateValue } from "../context/provider";
 import axios from "../axios.js";
 import { authBool, conversation } from "../context/actions.js";
 import cookie from "js-cookie";
 import { useHistory } from "react-router-dom";
-import { List, Button, Input, Form } from "semantic-ui-react";
+import { List, Button, Input, Form, Image } from "semantic-ui-react";
+import avatar from "../avatar.png";
 
 function Sidebar() {
   const history = useHistory();
@@ -95,7 +95,15 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__header">
         <div className="sidebar__left">
-          <Avatar />
+          <Image
+            avatar
+            src={
+              state.user.imagePath
+                ? `https://infinity-chat.herokuapp.com/uploads/${state.user.imagePath}`
+                : avatar
+            }
+            style={{ marginLeft: "20px", width: "50px", height: "50px" }}
+          />
           <h2>{state.user.userName}</h2>
         </div>
         <Button size="big" circular icon="sign-out" onClick={logout} />
@@ -131,7 +139,7 @@ function Sidebar() {
               searchUser();
             },
           }}
-          style={{ width: "25vw" }}
+          style={{ width: "27vw" }}
           type="text"
           placeholder="Search or start new chat by entering username"
           value={search}
@@ -146,6 +154,16 @@ function Sidebar() {
             setDisplay("none");
           }}
         >
+          <Image
+            avatar
+            src={
+              searchResult.imagePath
+                ? `https://infinity-chat.herokuapp.com/uploads/${searchResult.imagePath}`
+                : avatar
+            }
+            style={{ marginLeft: "20px", width: "50px", height: "50px" }}
+          />
+
           <h2>{searchResult.userName}</h2>
         </div>
       </div>

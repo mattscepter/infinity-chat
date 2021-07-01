@@ -54,8 +54,12 @@ function SignIn() {
         setErr("");
       })
       .catch((err) => {
-        if (err.response.data.error) {
-          setErr(err.response.data.error);
+        if (err.response) {
+          if (err.response.data.error) {
+            setErr(err.response.data.error);
+          }
+        } else {
+          console.log(err);
         }
         setUSer({
           ...user,

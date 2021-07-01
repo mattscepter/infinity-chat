@@ -4,11 +4,14 @@ import axios from "../axios.js";
 import { useHistory } from "react-router-dom";
 import { Button, Form, Icon, Message } from "semantic-ui-react";
 import infinity from "../infinity.png";
+import Compressor from "compressorjs";
 
 function SignUp() {
   const history = useHistory();
   const [err, setErr] = useState("");
-
+  const [img, setImg] = useState({
+    file: null,
+  });
   const [user, setUSer] = useState({
     name: "",
     email: "",
@@ -16,6 +19,17 @@ function SignUp() {
     password: "",
     cpassword: "",
   });
+
+  const handleCompressedUpload = (e) => {
+    const image = e.target.files[0];
+    new Compressor(image, {
+      quality: 0.5,
+      maxWidth: 2000,
+      success: (compressedResult) => {
+        setImg(compressedResult);
+      },
+    });
+  };
   let name, value;
   const handleInput = (e) => {
     name = e.target.name;
@@ -25,8 +39,21 @@ function SignUp() {
 
   const PostData = async (e) => {
     e.preventDefault();
+    const { name, email, userName, password, cpassword } = user;
+    let imageFormObj = new FormData();
+
+    imageFormObj.append("imageName", "multer-image-" + Date.now());
+    imageFormObj.append("imageData", img);
+    imageFormObj.append("name", name);
+    imageFormObj.append("email", email);
+    imageFormObj.append("userName", userName);
+    imageFormObj.append("password", password);
+    imageFormObj.append("cpassword", cpassword);
+
+    console.log(...imageFormObj);
+
     await axios
-      .post("/auth/register", user)
+      .post("/auth/register", imageFormObj)
       .then((res) => {
         console.log("successful" + res);
         history.push("/");
@@ -110,6 +137,9 @@ function SignUp() {
                 name="cpassword"
                 value={user.cpassword}
               />
+            </Form.Field>
+            <Form.Field>
+              <input type="file" onChange={(e) => handleCompressedUpload(e)} />
             </Form.Field>
             {err === "" ? (
               <></>
